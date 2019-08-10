@@ -134,3 +134,24 @@ The Linux kernel compiled for Nerves is a stripped down version of the default
 Raspberry Pi Linux kernel. This is done to remove unnecessary features, select
 some Nerves-specific features like F2FS and SquashFS support, and to save space.
 
+## Running dockerd
+
+Add `muontrap` to your project.
+
+```elixir
+{:muontrap, "~> 0.4"},
+```
+
+Create the data directories for `dockerd` in your `application.ex` and start the
+daemon.
+
+```elixir
+  def children(_target) do
+    File.mkdir_p("/root/etc/docker")
+    File.mkdir_p("/root/var/docker")
+
+    [
+      {MuonTrap.Daemon, ["dockerd", ["--data-root", "/root/var/docker"], [log_output: :debug, stderr_to_stdout: true]]}
+    ]
+  end
+```
