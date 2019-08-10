@@ -1,7 +1,7 @@
-defmodule NervesSystemRpi4.MixProject do
+defmodule NervesSystemDockerRpi4.MixProject do
   use Mix.Project
 
-  @app :nerves_system_rpi4
+  @app :nerves_system_docker_rpi4
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
