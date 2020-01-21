@@ -30,6 +30,7 @@ dtparam=audio=on
 # NOTE: The touchscreen seems to work fine with these commented out on the RPi4
 #dtoverlay=rpi-ft5406
 #dtoverlay=rpi-backlight
+dtoverlay=miniuart-bt
 
 # Comment this in or modify to enable OneWire
 # NOTE: check that the overlay that you specify is in the boot partition or
@@ -47,3 +48,6 @@ enable_uart=1
 #dtoverlay=vc4-fkms-v3d
 #max_framebuffers=2
 
+arm_64bit=1
+enable_gic=1
+armstub=armstub8-gic.bin
